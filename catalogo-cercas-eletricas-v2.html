@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catálogo de Centrais de Cerca Elétrica</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#f30606c7;--ink:#1c1c1e;--muted:#6b6b70;--line:#e6e6e8;--bg:#f7f7f8;--card:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Poppins",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+header{background:linear-gradient(120deg,#E85D00 0%,#FF7A00 55%,#FF9524 100%);color:#fff;box-shadow:0 2px 14px rgba(232,93,0,.28)}
+.hd{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:34px 0;flex-wrap:wrap}
+.hd h1{font-size:26px;font-weight:400;letter-spacing:.3px;text-shadow:0 1px 2px rgba(0,0,0,.18)}
+.hd h1 strong{font-weight:600}
+.hd p{font-size:13px;color:rgba(255,255,255,.92);margin-top:4px}
+.logo-box{background:#fff;padding:10px 18px;border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,.16);display:flex;align-items:center;min-height:56px}
+.logo-box img{height:36px;display:block}
+.logo-fallback{display:none;font-weight:600;font-size:22px;letter-spacing:3px;color:#121214}
+
+nav{background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.nv{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:14px;padding-bottom:14px}
+.tabs{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:2px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;display:flex;align-items:center;gap:9px;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 8px 8px 16px;font:500 14px "Poppins",sans-serif;cursor:pointer;transition:background .18s,color .18s,border-color .18s,transform .18s}
+.tab i{width:10px;height:10px;border-radius:50%;display:inline-block;box-shadow:0 0 0 2px #fff,0 0 0 3px rgba(0,0,0,.12)}
+.tab small{min-width:24px;text-align:center;font-size:11.5px;font-weight:600;color:var(--muted);background:var(--bg);border-radius:999px;padding:2px 8px;transition:inherit}
+.tab:hover{border-color:var(--c,#121214);transform:translateY(-1px)}
+.tab.active{background:var(--c,#121214);border-color:var(--c,#121214);color:var(--t,#fff);box-shadow:0 4px 12px rgba(0,0,0,.14)}
+.tab.active small{background:rgba(255,255,255,.28);color:inherit}
+.tab.active i{box-shadow:0 0 0 2px rgba(255,255,255,.9)}
+.tab:focus-visible,#q:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+.search{position:relative;flex:none}
+.search svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:#8d8d92;pointer-events:none}
+#q{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:10px 18px 10px 40px;font:13px "Poppins",sans-serif;width:250px;max-width:100%}
+#q:focus{background:#fff;border-color:#bbb}
+
+main{padding:44px 0 20px}
+section{margin-bottom:56px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
+.sec-head h2{font-size:22px;font-weight:600;padding-left:14px;border-left:5px solid var(--c)}
+.sec-head span{font-size:13px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:26px}
+
+.card{background:var(--card);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(0,0,0,.05),0 6px 20px rgba(0,0,0,.05);transition:box-shadow .2s}
+.card:hover{box-shadow:0 2px 4px rgba(0,0,0,.06),0 12px 28px rgba(0,0,0,.1)}
+.photo{height:190px;background:#fff;border-bottom:1px solid var(--line);position:relative;display:flex;align-items:center;justify-content:center}
+.photo img{width:100%;height:100%;object-fit:contain;padding:14px}
+.ph{display:flex;flex-direction:column;align-items:center;gap:6px;color:#b4b4b9;font-size:11px}
+.ph svg{width:64px;height:64px}
+.tag{position:absolute;top:12px;left:12px;font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--c);color:var(--t,#fff)}
+.body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:14px;flex:1}
+.card h3{font-size:16px;font-weight:600;line-height:1.35}
+dl{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.row{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12.5px}
+.row:last-child{border-bottom:0}
+dt{color:var(--muted)}
+dd{font-weight:500;text-align:right}
+.empty{text-align:center;color:var(--muted);padding:50px 0;display:none}
+
+/* Rodapé */
+  footer{background:#fff;color:var(--ink);margin-top:40px;font-size:13px;border-top:4px solid var(--orange)}
+  .footer-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;padding:32px 20px}
+  .footer-brand{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .footer-logo{display:inline-block;background:#fff;padding:8px 14px;border-radius:8px;border:1px solid var(--line)}
+  .footer-logo img{height:56px;width:auto;display:block}
+  .footer-gpa{font-size:14px;line-height:1.4}
+  .footer-gpa .label{display:block;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--orange);margin-bottom:2px}
+  .footer-gpa a{color:var(--orange);font-weight:600;text-decoration:none;display:inline-block;margin-top:4px}
+  .footer-gpa a:hover{text-decoration:underline}
+  .whatsapp-btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;transition:background 0.2s}
+  .whatsapp-btn:hover{background:#20ba5a}
+  .footer-bottom{border-top:1px solid var(--line);padding:14px 0;font-size:12px;color:var(--muted)}
+
+.fc{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.fc p+p{color:#8d8d92;font-size:12px;margin-top:4px}
+.wa{background:#25D366;color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14px}
+.wa:hover{background:#20ba5a}
+@media(max-width:700px){.hd h1{font-size:21px}.nv{flex-direction:column;align-items:stretch;gap:12px}.search{width:100%}#q{width:100%}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap hd">
+  <div><h1>Catálogo de <strong>Centrais de Cerca Elétrica</strong></h1><p>Eletrificadores e centrais das melhores marcas</p></div>
+  <div class="logo-box"><img alt="PPA" data-logo><div class="logo-fallback">PPA</div></div>
+</div></header>
+
+<nav><div class="wrap nv">
+  <div class="tabs" id="tabs"></div>
+  <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" placeholder="Buscar modelo..." aria-label="Buscar modelo"></div>
+</div></nav>
+
+<main class="wrap" id="app"></main>
+<div class="wrap"><div class="empty" id="empty">Nenhum produto encontrado.</div></div>
+
+<footer>
+  <div class="wrap footer-top">
+    <div class="footer-brand">
+      <a class="footer-logo" href="https://www.grupogpa.com.br/" target="_blank" rel="noopener">
+        <img src="https://www.grupogpa.com.br/wp-content/uploads/2025/11/Logotipo-GrupoGPA-em-PNG-722x1280-1.png" alt="Grupo GPA" onerror="this.parentElement.style.display='none'">
+      </a>
+      <p class="footer-gpa">
+        <span class="label">Distribuidora</span>
+        Produtos distribuídos pelo <b>Grupo GPA</b><br>
+        <a href="https://www.grupogpa.com.br/" target="_blank" rel="noopener">Conheça a distribuidora →</a>
+      </p>
+    </div>
+    <a href="https://wa.me/558420208889?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20os%20automatizadores." target="_blank" class="whatsapp-btn">
+      Falar no WhatsApp (84) 2020-8889
+    </a>
+  </div>
+  <div class="footer-bottom">
+    <div class="wrap">Catálogo de revenda · Valores sujeitos a alteração sem aviso prévio. · PPA é marca de seu respectivo titular.</div>
+  </div>
+</footer>
+
+<script>
+const LOGOS=["https://www.grupogpa.com.br/wp-content/uploads/2025/11/Logotipo-GrupoGPA-em-PNG-722x1280-1.png","logo-ppa.png"];
+
+const BRANDS={
+  jfl:{name:"JFL",c:"#F2B705",t:"#222"},
+  nice:{name:"Nice",c:"#0A6CC4"},
+  agl:{name:"AGL",c:"#E8B800",c2:"#9A9A9A",t:"#222"},
+  ppa:{name:"PPA",c:"#FF7A00"}
+};
+
+/* imgSrc: cole aqui o link da foto de cada produto.
+   Se deixar vazio, o catálogo procura em fotos/<slug>.jpg|png|webp */
+const P=[
+ {b:"jfl",name:"Central de Cerca ECR-18 Plus",imgSrc:"https://jflalarmes.com.br/wp-content/uploads/2022/04/ECR-18-220x220.png",f:[["Energia de pulso","0,5 Joule"],["Tensão ajustável","12.000V, 15.000V ou 18.000V"],["Capacidade","até 1.600 m de fio"],["Aplicativo","com módulo compatível"],["Zonas","1 com fio + 4 sem fio"]]},
+ {b:"jfl",name:"Central de Cerca ECR-18i Plus Industrial",imgSrc:"https://jflalarmes.com.br/wp-content/uploads/2022/04/ECR-18i-220x220.png",f:[["Energia de pulso","4 Joules"],["Tensão ajustável","12.000V, 15.000V ou 18.000V"],["Capacidade","até 12.000 m de fio"],["Aplicativo","com módulo compatível"],["Zonas","1 com fio + 4 sem fio"]]},
+ {b:"jfl",name:"Eletrificador de Cerca ECR-10",imgSrc:"https://jflalarmes.com.br/wp-content/uploads/2023/08/ECR-10-220x220.png",f:[["Energia de pulso","0,5 Joule"],["Tensão de saída","10.000V"],["Capacidade","até 1.200 m de fio"]]},
+ {b:"jfl",name:"Eletrificador de Cerca ECR-10W",imgSrc:"https://jflalarmes.com.br/wp-content/uploads/2023/08/ECR-10-W.png",f:[["Conectividade","Wi-Fi e Bluetooth integrados"],["Energia de pulso","0,5 Joule"],["Ethernet","módulo por Wi-Fi integrado"],["Capacidade","até 1.600 m de fio"],["Zonas","9 sem fio + 1 mista"]]},
+ {b:"nice",name:"Central de Cerca Nice Revolution Control",imgSrc:"https://www.niceforyou.com/sites/default/files/styles/800x800_scale/public/2024-07/Eletrificador-impacto-pt-600x635-1.png?itok=dckaLvg_",f:[["Energia de pulso","0,6 Joule"],["Setores de alarme","2 independentes"],["Capacidade","até 3.100 m de fio"]]},
+ {b:"agl",name:"Eletrificador de Cerca EC500",imgSrc:"https://acdn-us.mitiendanube.com/stores/003/557/673/products/831bf03acdd79f1db180d6673cbfd76fawsaccesskeyidakiatclmsgfx4j7tu445expires1702757353signaturevwvorxdcah3qrgiagc0kgpkhmzy3d-e90408662c387a2c4d17001654340752-640-0.webp",f:[["Energia de pulso","até 0,5 Joule"],["Tensão ajustável","12.000V, 14.000V ou 18.000V"]]},
+ {b:"agl",name:"Eletrificador de Cerca EC500 Wi-Fi",imgSrc:"https://http2.mlstatic.com/D_NQ_NP_766237-MLB73980293934_012024-O-central-de-cerca-eletrificador-ec500-wifi--agl.webp",f:[["Conexão","Wi-Fi 2,4 GHz"],["Controle remoto","aplicativo AGL Home"],["Capacidade","até 1.200 m de fio"]]},
+ {b:"ppa",name:"CX-7804 Shock Battery",imgSrc:"https://media.ppa.com.br/images/full/Eletrificador_de_Cerca_Shock_Battery_2023_1681904693217.webp",f:[["Tensão de saída","10.000V"],["Dispositivos sem fio","até 42"],["Bateria","carregador incorporado"],["Capacidade","até 1.200 m de fio"]]},
+ {b:"ppa",name:"Compact CR 2S Smart On",imgSrc:"https://sonl.ppa.com.br:5443/images/modelos/4d4968b1-21aa-4855-bb38-d3ac78707152.png",f:[["Aplicativo","controle, configuração e notificações"],["Tensão de saída","4.000V a 10.000V"],["Setores de alarme","2 independentes"],["Capacidade","até 1.200 m de fio"]]},
+ {b:"ppa",name:"Central de Cerca GCP Compact CR Economy CX-7801",imgSrc:"https://media.ppa.com.br/images/full/Eletrificador-Compact-Power-CR-Economy-04_2023_1681904193261.webp",f:[["Tensão de saída","10.000V"],["Bateria","carregador incorporado"],["Capacidade","até 1.200 m de fio"]]}
+];
+P.forEach(p=>p.slug=p.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""));
+
+const PH='<div class="ph"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><rect x="10" y="14" width="44" height="36" rx="4"/><circle cx="20" cy="24" r="2"/><path d="M18 36h28M18 43h18"/></svg>Foto do produto</div>';
+
+const app=document.getElementById("app"),empty=document.getElementById("empty"),tabs=document.getElementById("tabs");
+let filter="all",query="";
+
+function tabsHtml(){
+  let h=`<button class="tab active" data-f="all">Todos <small>${P.length}</small></button>`;
+  for(const k in BRANDS){const v=BRANDS[k];
+    h+=`<button class="tab" data-f="${k}" style="--c:${v.c};--t:${v.t||"#fff"}"><i style="background:linear-gradient(90deg,${v.c} 50%,${v.c2||v.c} 50%)"></i>${v.name} <small>${P.filter(p=>p.b===k).length}</small></button>`;}
+  tabs.innerHTML=h;
+}
+const card=p=>`<article class="card">
+  <div class="photo">${PH}<img alt="${p.name}" data-photo="${p.slug}" ${p.imgSrc?`data-src="${p.imgSrc}"`:""} hidden><span class="tag">${BRANDS[p.b].name}</span></div>
+  <div class="body"><h3>${p.name}</h3><dl>${p.f.map(x=>`<div class="row"><dt>${x[0]}</dt><dd>${x[1]}</dd></div>`).join("")}</dl></div>
+</article>`;
+
+function loadPhotos(){
+  app.querySelectorAll("img[data-photo]").forEach(img=>{
+    const ok=()=>{img.hidden=false;const ph=img.parentElement.querySelector(".ph");if(ph)ph.style.display="none"};
+    img.onload=ok;
+    if(img.dataset.src){img.src=img.dataset.src;return}
+    const exts=["jpg","png","webp"];let n=0;
+    const next=()=>{if(n<exts.length)img.src=`fotos/${img.dataset.photo}.${exts[n++]}`};
+    img.onerror=next;next();
+  });
+}
+function render(){
+  const q=query.trim().toLowerCase();let html="",total=0;
+  for(const k in BRANDS){
+    if(filter!=="all"&&filter!==k)continue;
+    const items=P.filter(p=>p.b===k&&(!q||(p.name+" "+BRANDS[k].name).toLowerCase().includes(q)));
+    if(!items.length)continue;total+=items.length;const v=BRANDS[k];
+    html+=`<section style="--c:${v.c};--t:${v.t||"#fff"}"><div class="sec-head"><h2>${v.name}</h2><span>${items.length} modelo(s)</span></div><div class="grid">${items.map(card).join("")}</div></section>`;
+  }
+  app.innerHTML=html;empty.style.display=total?"none":"block";loadPhotos();
+}
+tabs.addEventListener("click",e=>{const b=e.target.closest(".tab");if(!b)return;
+  tabs.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));b.classList.add("active");filter=b.dataset.f;render()});
+document.getElementById("q").addEventListener("input",e=>{query=e.target.value;render()});
+
+document.querySelectorAll("img[data-logo]").forEach(img=>{
+  let n=0;const next=()=>{
+    if(n>=LOGOS.length){img.style.display="none";img.nextElementSibling.style.display="block";return}
+    img.src=LOGOS[n++]};
+  img.onerror=next;next();
+});
+tabsHtml();render();
+</script>
+</body>
+</html>
